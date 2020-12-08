@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Advanced Filter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #f='ngForm' (submit) = 'onSubmit(f)'>
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input placeholder='Enter title' [(ngModel)]='input.title' type='text' name='title'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tags</ion-label>
+      <ion-select [value]="veggie" multiple='true' name='tags' [(ngModel)]='input.tags'>
+        <ion-select-option value="veggie">Veggie</ion-select-option>
+        <ion-select-option value="meat">Meat</ion-select-option>
+        <ion-select-option value="rice">Rice</ion-select-option>
+        <ion-select-option value="fruits">Fruits</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Max Price</ion-label>
+      <ion-input placeholder='Enter Price' [(ngModel)]='input.price' type='number' name='price'></ion-input>
+    </ion-item>
+    <div style='width:100%;display:flex;justify-content: center;padding-top:1.2rem'>
+      <ion-button type='submit'>Find</ion-button>
+    </div>
+  </form>
+</ion-content>

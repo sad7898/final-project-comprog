@@ -1,0 +1,44 @@
+
+<ion-header [translucent]='true'>
+<ion-toolbar>
+  <ion-buttons slot="primary" (click)='onSearch()'>
+    <ion-button>
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-title>Home</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button color='secondary' (click)="removeParams()">
+    Clear
+  </ion-button>
+  <ng-container padding *ngFor='let item of recipeArr;let i=index'>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-button size='small' *ngFor='let tag of item["tags"]' class='bread-crumb' (click)='filterbyButton(tag)'>
+            {{tag ? tag : null}}
+          </ion-button>
+        </ion-card-subtitle>
+        <ion-card-title (click) ="loadOne(item['_id']['$oid'])" class='basic-link'>{{item.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+      <ion-item padding>
+        {{item.price}} Baht
+      </ion-item>
+      <ion-item padding>
+        <ion-button [color]='item["color"]' size='small' (click)= 'onLike(item["_id"]["$oid"],i)'>Like</ion-button>
+      </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" #infiniteScroll>
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

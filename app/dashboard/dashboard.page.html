@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Dashboard
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content [fullscreen]="true">
+    <div style="font-size:1.5rem;padding: 15px;">
+        Welcome to Recipe!
+    </div>
+    <canvas width='400' height='400' #chart>
+
+    </canvas>
+    <ion-card padding>
+        <ion-card-header>
+          <ion-card-title>Recipe You Liked</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ng-container *ngFor='let item of likedRecipe; let i = index'>
+            <ion-item  (click)="navigate(likedRecipe[i]['_id']['$oid'])">
+              <div class='basic-link'>
+                {{likedRecipe[i]['title']}}
+              </div>
+            </ion-item>
+          </ng-container>
+        </ion-card-content>
+    </ion-card>
+  </ion-content>

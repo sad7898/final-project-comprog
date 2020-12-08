@@ -1,0 +1,228 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      New Recipe
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+<form #f='ngForm' (ngSubmit)='onUpload(f)'>
+<ion-card padding>
+    <ion-item>
+      <ion-label position="stacked" style='font-size: 1.5rem;margin-bottom: 1.5rem;'>Title</ion-label>
+      <ion-input required type="text" maxlength='16' [(ngModel)]="recipe.title" name="title" placeholder="Enter title" required></ion-input>
+    </ion-item>
+</ion-card>
+<ion-card padding>
+  <ion-item padding>
+    <ion-label style="font-size:1.2rem;">
+      Ingredients
+    </ion-label>
+  </ion-item>
+
+
+    <ion-item padding>
+    <ion-label>
+      1.
+    </ion-label>
+    <ion-input type="text" position='floating' [(ngModel)]='recipe.ingredients[0]["name"]' name='"ingredient"+1' placeholder='Enter ingredients name' required></ion-input>
+  </ion-item>
+  <ion-item *ngIf='recipe.ingredients[0]["name"]'>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-input type="number" position='fixed' placeholder='Enter Quantity' name='"quantity"+1' [(ngModel)]='recipe.ingredients[0]["quantity"]'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+        <ion-select [value] ="grams"  name="'qunit'+1" [(ngModel)]='recipe.ingredients[0]["unit"]' style="max-width: 100%;">
+          <ion-select-option value="grams">grams</ion-select-option>
+          <ion-select-option value="ml">mililiters</ion-select-option>
+          <ion-select-option value="unit">unit</ion-select-option>
+          <ion-select-option value="cm">cm</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <div *ngIf='recipe.ingredients[0]["name"]'>
+  <ion-item padding>
+    <ion-label>
+      2.
+    </ion-label>
+    <ion-input type="text" position='floating' [(ngModel)]='recipe.ingredients[1]["name"]' name='"ingredient"+2' placeholder='Enter ingredients name'></ion-input>
+  </ion-item>
+  <ion-item *ngIf='recipe.ingredients[1]["name"]'>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-input type="number" position='fixed' placeholder='Enter Quantity' name='"quantity"+2' [(ngModel)]='recipe.ingredients[1]["quantity"]'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+        <ion-select [value] ="grams"  name="'qunit'+2" [(ngModel)]='recipe.ingredients[1]["unit"]' style="max-width: 100%;">
+          <ion-select-option value="grams">grams</ion-select-option>
+          <ion-select-option value="ml">mililiters</ion-select-option>
+          <ion-select-option value="unit">unit</ion-select-option>
+          <ion-select-option value="cm">cm</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+
+<div *ngIf='recipe.ingredients[1]["name"]'>
+  <ion-item padding>
+    <ion-label>
+      3.
+    </ion-label>
+    <ion-input type="text" position='floating' [(ngModel)]='recipe.ingredients[2]["name"]' name='"ingredient"+3' placeholder='Enter ingredients name'></ion-input>
+  </ion-item>
+  <ion-item *ngIf='recipe.ingredients[2]["name"]'>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-input type="number" position='fixed' placeholder='Enter Quantity' name='"quantity"+i' [(ngModel)]='recipe.ingredients[2]["quantity"]'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+        <ion-select [value] ="grams"  name="'qunit'+3" [(ngModel)]='recipe.ingredients[2]["unit"]' style="max-width: 100%;">
+          <ion-select-option value="grams">grams</ion-select-option>
+          <ion-select-option value="ml">mililiters</ion-select-option>
+          <ion-select-option value="unit">unit</ion-select-option>
+          <ion-select-option value="cm">cm</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+
+<div *ngIf='recipe.ingredients[2]["name"]'>
+  <ion-item padding>
+    <ion-label>
+      4.
+    </ion-label>
+    <ion-input type="text" position='floating' [(ngModel)]='recipe.ingredients[3]["name"]' name='"ingredient"+4' placeholder='Enter ingredients name'></ion-input>
+  </ion-item>
+  <ion-item *ngIf='recipe.ingredients[3]["name"]'>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-input type="number" position='fixed' placeholder='Enter Quantity' name='"quantity"+4' [(ngModel)]='recipe.ingredients[3]["quantity"]'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+        <ion-select [value] ="grams"  name="'qunit'+4" [(ngModel)]='recipe.ingredients[3]["unit"]' style="max-width: 100%;">
+          <ion-select-option value="grams">grams</ion-select-option>
+          <ion-select-option value="ml">mililiters</ion-select-option>
+          <ion-select-option value="unit">unit</ion-select-option>
+          <ion-select-option value="cm">cm</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+
+<div *ngIf='recipe.ingredients[3]["name"]'>
+  <ion-item padding>
+    <ion-label>
+      5.
+    </ion-label>
+    <ion-input type="text" position='floating' [(ngModel)]='recipe.ingredients[4]["name"]' name='"ingredient"+5' placeholder='Enter ingredients name'></ion-input>
+  </ion-item>
+  <ion-item *ngIf='recipe.ingredients[4]["name"]'>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="7">
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-input type="number" position='fixed' placeholder='Enter Quantity' name='"quantity"+5' [(ngModel)]='recipe.ingredients[4]["quantity"]'></ion-input>
+      </ion-col>
+      <ion-col size="5">
+        <ion-select [value] ="grams"  name="'qunit'+5" [(ngModel)]='recipe.ingredients[4]["unit"]' style="max-width: 100%;">
+          <ion-select-option value="grams">grams</ion-select-option>
+          <ion-select-option value="ml">mililiters</ion-select-option>
+          <ion-select-option value="unit">unit</ion-select-option>
+          <ion-select-option value="cm">cm</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+</div>
+</ion-card>
+
+
+<ion-card padding>
+  <ion-item padding>
+    <ion-item style="font-size:1.2rem;">
+      Steps
+    </ion-item>
+  </ion-item>
+    <ion-item padding>
+      <ion-label>1.</ion-label>
+      <ion-textarea rows='3' col='3' [(ngModel)]='recipe.step[0]' name='"step"+1' placeholder='Enter recipe detail' required></ion-textarea>
+    </ion-item>
+    <ion-item padding *ngIf='recipe.step[0]'>
+      <ion-label>2.</ion-label>
+      <ion-textarea rows='3' col='3' [(ngModel)]='recipe.step[1]' name='"step"+2' placeholder='Enter recipe detail'></ion-textarea>
+    </ion-item>
+    <ion-item padding *ngIf='recipe.step[1]'>
+      <ion-label>3.</ion-label>
+      <ion-textarea rows='3' col='3' [(ngModel)]='recipe.step[2]' name='"step"+3' placeholder='Enter recipe detail'></ion-textarea>
+    </ion-item>
+    <ion-item padding *ngIf='recipe.step[2]'>
+      <ion-label>4.</ion-label>
+      <ion-textarea rows='3' col='3' [(ngModel)]='recipe.step[3]' name='"step"+4' placeholder='Enter recipe detail'></ion-textarea>
+    </ion-item>
+    <ion-item padding *ngIf='recipe.step[3]'>
+      <ion-label>5.</ion-label>
+      <ion-textarea rows='3' col='3' [(ngModel)]='recipe.step[4]' name='"step"+5' placeholder='Enter recipe detail'></ion-textarea>
+    </ion-item>
+</ion-card>
+
+
+<ion-card padding>
+  <ion-item padding>
+    <ion-label style="font-size:1.2rem;">
+      Price
+    </ion-label>
+    <ion-input type='number' [(ngModel)]='recipe.price' name='price' placeholder='Please enter average price in Baht' required></ion-input>
+  </ion-item>
+</ion-card>
+
+<ion-card padding>
+  <ion-item padding>
+    <ion-label style="font-size:1.2rem;">
+      Tags
+    </ion-label>
+    <ion-select [value] ="Meat"  name="tags" [(ngModel)]='recipe.tags' style="max-width: 100%;" required multiple='true'>
+      <ion-select-option value="veggie">Veggie</ion-select-option>
+      <ion-select-option value="rice">Carbohydrates</ion-select-option>
+      <ion-select-option value="meat">Meat</ion-select-option>
+      <ion-select-option value="fruits">Fruity</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-card>
+
+<ion-button type='submit'>
+  Post
+</ion-button>
+</form>
+
+</ion-content>

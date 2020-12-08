@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{this.recipe.title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item style='font-size: 1.5rem;'>
+    Ingredients
+  </ion-item>
+  <ion-grid>
+    <ng-container  *ngFor='let ing of recipe.ingredients;let i =index'>
+    <ion-row>
+    <ion-col size='7'>
+      {{ing["name"] ? ing['name'] : ""}}
+    </ion-col>
+    <ion-col size='5'>
+      {{ing['quantity'] ? ing['quantity'] : ""}} {{ing['unit'] ? ing['unit'] : ""}}
+    </ion-col>
+  </ion-row>
+  </ng-container>
+  </ion-grid>
+
+<ion-item style='font-size: 1.5rem;'>
+    Steps
+  </ion-item>
+    
+      <ion-grid>
+        <ng-container  *ngFor='let step of recipe.step;let indx =index'>
+        <ion-row>
+          <ion-col>
+            {{step ? indx+1+"." : ''}} {{step ? step: ''}}
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      </ion-grid>
+
+      <ion-item style='font-size: 1.5rem;'>
+        Price
+      </ion-item>
+        
+          <ion-grid>
+        
+            <ion-row>
+              <ion-col>
+                {{recipe.price ? recipe.price : 'not provided'}} Baht
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+
+
+</ion-content>

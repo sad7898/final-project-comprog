@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sign In
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Sign In
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content [fullscreen]="true">
+<form #f='ngForm' (ngSubmit)="onSubmit(f)"> 
+  <ion-item>
+    <ion-label position="stacked">Username</ion-label>
+    <ion-input required type="text" minlength='8' [(ngModel)]="user.username" name="username" placeholder="Enter Username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input required type="password" minlength='8' [(ngModel)]="user.password" name="password" placeholder="Enter Username"></ion-input>
+  </ion-item>
+  <ion-button type="submit">Submit</ion-button>
+</form>
+<div *ngIf='error.length!=0'>
+  {{error[0]}}
+</div>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="reg" *ngIf='!token;else dashboard'>
+      <ion-icon name="person-add"></ion-icon>
+      <ion-label>Sign Up</ion-label>
+    </ion-tab-button>
+    <ng-template #dashboard>
+      <ion-tab-button tab="dashboard">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+    </ng-template>
+
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="login" *ngIf='!token;else form'>
+      <ion-icon name="log-in"></ion-icon>
+      <ion-label>Sign In</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  <ng-template #form>
+    <ion-tab-button tab="form">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>New</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)='handleLogOut()'>
+      <ion-icon name="log-out"></ion-icon>
+      <ion-label>Sign Out</ion-label>
+    </ion-tab-button>
+  </ng-template>
+
+</ion-tabs>
